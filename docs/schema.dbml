@@ -1,0 +1,17 @@
+Table users as u{
+    id bigint [pk, increment]
+    name varchar(20) [not_null]
+    password varchar(255) [not_null]
+}
+
+Table en_records as e{
+    id bigint [pk, increment]
+    user_id bigint [not_null]
+    color_mode varchar(20) [not_null]
+    recorded_at timestamptz [not_null]
+    path_data jsonb [not_null]
+    created_at timestamptz 
+    updated_at timestamptz
+}
+
+Ref: e.user_id > u.id
